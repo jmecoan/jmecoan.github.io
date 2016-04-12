@@ -1,16 +1,17 @@
-// Smooth Scrolling script from css-tricks.com
-// https://css-tricks.com/snippets/jquery/smooth-scrolling/
-$(function() {
-  $('a[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
+ // portfolio
+ $('.gallery ul li a').click(function() {
+     var itemID = $(this).attr('href');
+     $('.gallery ul').addClass('item_open');
+     $(itemID).addClass('item_open');
+     return false;
+ });
+ $('.close').click(function() {
+     $('.port, .gallery ul').removeClass('item_open');
+     return false;
+ });
+
+ $(".gallery ul li a").click(function() {
+     $('html, body').animate({
+         scrollTop: parseInt($("#top").offset().top)
+     }, 400);
+ });
